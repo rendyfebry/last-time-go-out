@@ -9,6 +9,8 @@
 import Counter from "./components/Counter.vue";
 import Starter from "./components/Starter.vue";
 
+const CACHE_KEY = "startedTimestamp";
+
 export default {
   name: "App",
   components: {
@@ -36,17 +38,26 @@ export default {
   },
   methods: {
     cancel() {
+      localStorage.removeItem(CACHE_KEY);
+
       this.startedTimestamp = 0;
       this.started = false;
     },
     startCounter(timestamp = new Date().getTime()) {
+      localStorage.setItem(CACHE_KEY, timestamp);
+
       this.startedTimestamp = timestamp;
       this.started = true;
     }
   },
   mounted() {
     this.todayTimestamp = new Date().getTime();
-    console.log("Mounted");
+
+    const startedTimestamp = localStorage.getItem(CACHE_KEY);
+    if (startedTimestamp) {
+      this.startedTimestamp = startedTimestamp;
+      this.started = true;
+    }
   }
 };
 </script>
