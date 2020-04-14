@@ -72,7 +72,8 @@ export default {
 }
 
 .btn {
-  margin: 0 0.5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .date-input {
