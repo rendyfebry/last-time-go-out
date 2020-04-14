@@ -34,7 +34,7 @@ export default {
   data() {
     return {
       showDatePicker: false,
-      selectedDate: ""
+      selectedDate: "2020-01-01"
     };
   },
   methods: {
