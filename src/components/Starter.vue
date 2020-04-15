@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <h1 class="title">When is the last time you go out?</h1>
+    <h1 class="title">When did the last time you go out?</h1>
 
     <div>
       <template v-if="!showDatePicker">
